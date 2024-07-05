@@ -15,7 +15,173 @@ window.addEventListener('load', async () => {
 
   const contractAddress = ""; // Adresse du contrat Donation
   const abi = [
-      
+      {
+          "constant": true,
+          "inputs": [],
+          "name": "donationCount",
+          "outputs": [
+              {
+                  "name": "",
+                  "type": "uint256"
+              }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function",
+          "signature": "0x2abfab4d"
+      },
+      {
+          "constant": true,
+          "inputs": [
+              {
+                  "name": "",
+                  "type": "address"
+              },
+              {
+                  "name": "",
+                  "type": "uint256"
+              }
+          ],
+          "name": "donateurToDonations",
+          "outputs": [
+              {
+                  "name": "",
+                  "type": "uint256"
+              }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function",
+          "signature": "0x5a0dbc78"
+      },
+      {
+          "constant": true,
+          "inputs": [
+              {
+                  "name": "",
+                  "type": "uint256"
+              }
+          ],
+          "name": "donations",
+          "outputs": [
+              {
+                  "name": "id",
+                  "type": "uint256"
+              },
+              {
+                  "name": "donateur",
+                  "type": "address"
+              },
+              {
+                  "name": "montant",
+                  "type": "uint256"
+              },
+              {
+                  "name": "timestamp",
+                  "type": "uint256"
+              }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function",
+          "signature": "0xf8626af8"
+      },
+      {
+          "anonymous": false,
+          "inputs": [
+              {
+                  "indexed": false,
+                  "name": "id",
+                  "type": "uint256"
+              },
+              {
+                  "indexed": false,
+                  "name": "donateur",
+                  "type": "address"
+              },
+              {
+                  "indexed": false,
+                  "name": "montant",
+                  "type": "uint256"
+              },
+              {
+                  "indexed": false,
+                  "name": "timestamp",
+                  "type": "uint256"
+              }
+          ],
+          "name": "DonationCreated",
+          "type": "event",
+          "signature": "0x6389d52932f001f805bda3695335e2ce2064320790f711cffd61bf0805131ce7"
+      },
+      {
+          "constant": false,
+          "inputs": [],
+          "name": "createDonation",
+          "outputs": [],
+          "payable": true,
+          "stateMutability": "payable",
+          "type": "function",
+          "signature": "0x08196a9e"
+      },
+      {
+          "constant": true,
+          "inputs": [
+              {
+                  "name": "_donateur",
+                  "type": "address"
+              }
+          ],
+          "name": "getDonationsByDonateur",
+          "outputs": [
+              {
+                  "name": "",
+                  "type": "uint256[]"
+              }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function",
+          "signature": "0x88c656ab"
+      },
+      {
+          "constant": true,
+          "inputs": [
+              {
+                  "name": "_id",
+                  "type": "uint256"
+              }
+          ],
+          "name": "getDonationDetails",
+          "outputs": [
+              {
+                  "components": [
+                      {
+                          "name": "id",
+                          "type": "uint256"
+                      },
+                      {
+                          "name": "donateur",
+                          "type": "address"
+                      },
+                      {
+                          "name": "montant",
+                          "type": "uint256"
+                      },
+                      {
+                          "name": "timestamp",
+                          "type": "uint256"
+                      }
+                  ],
+                  "name": "",
+                  "type": "tuple"
+              }
+          ],
+          "payable": false,
+          "stateMutability": "view",
+          "type": "function",
+          "signature": "0xeb564d35"
+      }
   ];
   const donationContract = new web3.eth.Contract(abi, contractAddress);
 

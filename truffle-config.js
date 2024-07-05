@@ -1,15 +1,21 @@
 module.exports = {
   networks: {
-    developement: {
+    development: {
       host: "127.0.0.1",
       port: 7545,
       network_id: "*"
     }
   },
-  solc: {
-    optimizer: {
-      enabled: true,
-      runs: 200
+  compilers: {
+    solc: {
+      version: "0.5.0",
+      settings: {
+        optimizer: {
+          enabled: true,
+          runs: 200
+        }
+      }
     }
-  }
-}
+  },
+  plugins: ["solidity-coverage"]
+};
